@@ -1,0 +1,63 @@
+import pandas as pd
+import numpy as np
+import csv
+
+# anime = pd.read_csv('anime.csv')
+# rating = pd.read_csv('rating.csv')
+# anime_modified = anime.set_index('name')
+
+# Fin = open ("data_archive.txt")
+# str = Fin.read()
+# with open('data_archive.txt', 'r') as infile, open('data_archive.csv', 'w') as outfile:
+#     stripped = (line.strip() for line in infile)
+#     lines = (line.split(",") for line in stripped if line)
+#     writer = csv.writer(outfile)
+#     writer.writerows(lines)
+
+# with open('data_archive.txt', 'r') as in_file:
+#     stripped = (line.strip() for line in in_file)
+#     lines = (line.split(",") for line in stripped if line)
+#     with open('data_archive.csv', 'w') as out_file:
+#         writer = csv.writer(out_file)
+#         writer.writerow(('Команда1', 'Команда2', 'П1', 'П2', 'Ставка1', 'Ставка2', 'Ставка3'))
+#         writer.writerows(lines)
+
+# df = pd.read_csv('data_archive.txt')
+# df = pd.read_csv(
+#     "data_archive.txt", names=['Команда1', 'Команда2', 'П1', 'П2', 'Ставка1', 'Ставка2', 'Ставка3'])
+# df.to_csv('data_archive.csv', index=None)
+
+# Сброс ограничений на количество выводимых рядов
+pd.set_option('display.max_rows', None)
+
+# Сброс ограничений на число столбцо
+pd.set_option('display.max_columns', None)
+
+# Сброс ограничений на количество символов в записи
+pd.set_option('display.max_colwidth', None)
+
+df = pd.read_csv(
+    "data_archiv_42263_365bet.txt", names=['Лига', 'Команда1', 'Команда2', 'П1', 'П2', 'Ставка1', 'Ставка2', 'Ставка3'])
+df.to_csv('data_archiv_42263_365bet.csv', index=None)
+
+
+# df1 = df.loc[df['Ставка2'] <= 3.3]
+# print(df['Команда1'].value_counts().sort_index(ascending=True))
+# print(df)
+
+# print(df.groupby('Лига')['П1'].value_counts())
+
+# df = df[df.Ставка1 <= 1.2]
+# df = df[df.Ставка3 <= 8.2]
+
+# print(df.nlargest(10, "П1")[["П1", "П2", "Лига", "Команда1"]])
+
+# print('Получение доступа к каждой записи:')
+# print(df.loc[66])
+
+drop_table = [«Ставка1»,
+«Ставка2»,
+«Ставка3»]
+df.drop(drop_table,inplace=true,axis=1)
+print(df.head)
+
